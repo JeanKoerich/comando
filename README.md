@@ -394,3 +394,5 @@ a porta 8080 só aceite conexões do proxy.
 - **Interface:** login, painel, listas, detalhes, rejeição de solução, atribuição, perfil, Swagger e layout de celular foram verificados no navegador; o envio de anexos foi validado pela API (sessão + CSRF reais), não pelo seletor de arquivos do navegador.
 - Não há testes automatizados de interface (o frontend é validado pelo build de produção).
 - Fora do escopo desta versão: múltiplas empresas, e-mails, WhatsApp, chat em tempo real/WebSocket, reabertura de demandas encerradas, edição de título/descrição/categoria, edição/exclusão de comentários, comentários privados e integração com S3 (a abstração de armazenamento está pronta via `ANEXOS_DISK`).
+
+<!-- Teste de entrega CI-CD por SHA -->
