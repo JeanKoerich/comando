@@ -1,0 +1,40 @@
+name: Comando - CD
+
+on:
+  workflow_run:
+    workflows:
+      - "Comando - CI e SAST"
+    types:
+      - completed
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  preparar-deploy:
+    name: Validar liberacao para deploy
+    if: >-
+      ${{
+        github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.head_branch == 'main' &&
+        github.event.workflow_run.head_repository.full_name == github.repository
+      }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Identificar commit aprovado
+        env:
+          COMMIT_SHA: ${{ github.event.workflow_run.head_sha }}
+        shell: bash
+        run: |
+          if [[ ! "$COMMIT_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "SHA do commit invalido"
+            exit 1
+          fi
+
+          echo "CI aprovado pelo GitHub Actions"
+          echo "Commit autorizado: $COMMIT_SHA"
+          echo "Deploy AWS ainda nao habilitado"
