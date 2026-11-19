@@ -396,3 +396,5 @@ a porta 8080 só aceite conexões do proxy.
 - Fora do escopo desta versão: múltiplas empresas, e-mails, WhatsApp, chat em tempo real/WebSocket, reabertura de demandas encerradas, edição de título/descrição/categoria, edição/exclusão de comentários, comentários privados e integração com S3 (a abstração de armazenamento está pronta via `ANEXOS_DISK`).
 
 <!-- Teste de entrega CI-CD por SHA -->
+
+<!-- Teste controlado de rollback CI-CD -->
